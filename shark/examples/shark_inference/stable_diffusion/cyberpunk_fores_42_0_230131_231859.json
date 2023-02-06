@@ -1,0 +1,10 @@
+{
+    "prompt": "cyberpunk forest by Salvador Dali",
+    "negative prompt": "",
+    "seed": 42,
+    "hf_model_id": "stabilityai/stable-diffusion-2-1-base",
+    "precision": "fp16",
+    "steps": 50,
+    "guidance_scale": 7.5,
+    "scheduler": "SharkEulerDiscrete"
+}
