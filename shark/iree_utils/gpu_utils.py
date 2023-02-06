@@ -40,9 +40,16 @@ def get_iree_gpu_args():
 def get_iree_rocm_args():
     ireert.flags.FUNCTION_INPUT_VALIDATION = False
     # get arch from rocminfo.
-    rocm_arch = re.match(r".*(gfx\w+)",
-        subprocess.check_output('rocminfo | grep -i \'gfx\'', shell=True, text=True)).group(1)
-    print(f"Found Rocm arch {rocm_arch}...")
+    import re
+    import subprocess
+
+    rocm_arch = re.match(
+        r".*(gfx\w+)",
+        subprocess.check_output(
+            "rocminfo | grep -i 'gfx'", shell=True, text=True
+        ),
+    ).group(1)
+    print(f"Found rocm arch {rocm_arch}...")
     return [
         f"--iree-rocm-target-chip={rocm_arch}",
         "--iree-rocm-link-bc=true",
